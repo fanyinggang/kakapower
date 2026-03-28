@@ -1,12 +1,14 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
+<html lang="zh-CN"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>卡特彼勒 C7.1 发动机详情</title>
+  <title>发动机详情 - 卡特彼勒 C7.1 挖掘机发动机</title>
+  <!-- Tailwind CSS v3 -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome -->
   <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+  <!-- 统一的 Tailwind 配置 -->
   <script>
     tailwind.config = {
       theme: {
@@ -34,10 +36,17 @@
           animation: {
             'fade-in': 'fadeIn 0.3s ease-in-out',
             'slide-up': 'slideUp 0.4s ease-out',
+            'pulse-slow': 'pulse 3s infinite',
           },
           keyframes: {
-            fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
-            slideUp: { '0%': { transform: 'translateY(20px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } }
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            slideUp: {
+              '0%': { transform: 'translateY(20px)', opacity: '0' },
+              '100%': { transform: 'translateY(0)', opacity: '1' },
+            }
           }
         }
       }
@@ -45,19 +54,39 @@
   </script>
   <style type="text/tailwindcss">
     @layer utilities {
-      .content-auto { content-visibility: auto; }
-      .text-shadow { text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
-      .transition-all-300 { transition: all 0.3s ease; }
-      .scrollbar-hide::-webkit-scrollbar { display: none; }
-      .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
-      .glass-effect { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); }
-      .card-hover { transition: all 0.3s ease; }
-      .card-hover:hover { transform: translateY(-5px); box-shadow: var(--tw-shadow-hover); }
+      .content-auto {
+        content-visibility: auto;
+      }
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .transition-all-300 {
+        transition: all 0.3s ease;
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .glass-effect {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+      .card-hover {
+        transition: all 0.3s ease;
+      }
+      .card-hover:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--tw-shadow-hover);
+      }
     }
   </style>
 </head>
 <body class="bg-bgLight text-textDark font-sans">
-  <!-- 顶部导航 -->
+  <!-- 顶部导航栏 -->
   <header class="sticky top-0 z-50 bg-white shadow-md">
     <div class="container mx-auto px-4 py-3 flex items-center justify-between">
       <div class="flex items-center">
@@ -67,15 +96,19 @@
         <h1 class="text-lg font-semibold truncate">发动机详情</h1>
       </div>
       <div class="flex items-center space-x-4">
-        <button class="text-textMedium hover:text-primary transition-all-300"><i class="fa fa-share-alt text-lg"></i></button>
-        <button class="text-textMedium hover:text-primary transition-all-300"><i class="fa fa-ellipsis-v text-lg"></i></button>
+        <button class="text-textMedium hover:text-primary transition-all-300">
+          <i class="fa fa-share-alt text-lg"></i>
+        </button>
+        <button class="text-textMedium hover:text-primary transition-all-300">
+          <i class="fa fa-ellipsis-v text-lg"></i>
+        </button>
       </div>
     </div>
   </header>
 
-  <!-- 主要内容 -->
+  <!-- 主要内容区域 -->
   <main class="container mx-auto px-4 py-4">
-    <!-- 图片轮播 -->
+    <!-- 发动机图片轮播 -->
     <section class="mb-6 bg-white rounded-lg shadow-card overflow-hidden">
       <div class="relative">
         <div id="imageCarousel" class="relative overflow-hidden h-64 md:h-80">
@@ -84,39 +117,66 @@
               <img src="./111.png" alt="卡特彼勒 C7.1 发动机" class="w-full h-full object-cover">
             </div>
             <div class="w-full flex-shrink-0">
-              <img src="https://p11-doubao-search-sign.byteimg.com/labis/c3ab1c5d98f8e0b0b056342ab6e738bb~tplv-be4g95zd3a-image.jpeg" alt="C7.1 发动机细节" class="w-full h-full object-cover">
+              <img src="https://p11-doubao-search-sign.byteimg.com/labis/c3ab1c5d98f8e0b0b056342ab6e738bb~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&amp;x-expires=1790154065&amp;x-signature=L1EF2mWQLdLjuBpds2%2BkNvOd39Y%3D" alt="发动机细节图" class="w-full h-full object-cover">
             </div>
             <div class="w-full flex-shrink-0">
-              <img src="https://p26-doubao-search-sign.byteimg.com/isp-i18n-media/img/aebb487b10452c6c8d1ca14437b11364~tplv-be4g95zd3a-image.jpeg" alt="C7.1 发动机侧面" class="w-full h-full object-cover">
+              <img src="https://p26-doubao-search-sign.byteimg.com/isp-i18n-media/img/aebb487b10452c6c8d1ca14437b11364~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&amp;x-expires=1790154065&amp;x-signature=V%2BYD5T%2BQ02R0zqOkymiRUXgEWK8%3D" alt="发动机侧面图" class="w-full h-full object-cover">
             </div>
           </div>
         </div>
+        <!-- 轮播指示器 -->
         <div class="absolute bottom-3 left-0 right-0 flex justify-center space-x-2">
           <button class="w-2 h-2 rounded-full bg-white opacity-100 transition-all-300 carousel-indicator" data-index="0"></button>
           <button class="w-2 h-2 rounded-full bg-white opacity-50 transition-all-300 carousel-indicator" data-index="1"></button>
           <button class="w-2 h-2 rounded-full bg-white opacity-50 transition-all-300 carousel-indicator" data-index="2"></button>
         </div>
-        <button class="absolute left-3 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-30 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-opacity-50 transition-all-300" id="prevSlide"><i class="fa fa-chevron-left"></i></button>
-        <button class="absolute right-3 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-30 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-opacity-50 transition-all-300" id="nextSlide"><i class="fa fa-chevron-right"></i></button>
+        <!-- 轮播控制按钮 -->
+        <button class="absolute left-3 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-30 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-opacity-50 transition-all-300" id="prevSlide">
+          <i class="fa fa-chevron-left"></i>
+        </button>
+        <button class="absolute right-3 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-30 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-opacity-50 transition-all-300" id="nextSlide">
+          <i class="fa fa-chevron-right"></i>
+        </button>
       </div>
     </section>
 
-    <!-- 基本信息 -->
+    <!-- 发动机基本信息 -->
     <section class="mb-6 bg-white rounded-lg shadow-card p-4">
       <div class="flex justify-between items-start mb-4">
         <div>
-          <h2 class="text-xl font-bold mb-1">卡特彼勒 C7.1 ACERT™ 发动机</h2>
-          <p class="text-textMedium text-sm">设备编号：CAT-C7.1-XXXX</p>
+          <h2 class="text-xl font-bold mb-1">卡特彼勒 C7.1 发动机</h2>
+          <p class="text-textMedium text-sm">设备编号：ENG12345678</p>
         </div>
-        <div class="bg-accent text-white text-sm font-semibold px-3 py-1 rounded-full">¥137,000</div>
+        <div class="bg-accent text-white text-sm font-semibold px-3 py-1 rounded-full">
+          ¥137,000
+        </div>
       </div>
+      
       <div class="flex flex-wrap gap-y-3 text-sm">
-        <div class="w-full md:w-1/2 flex items-center"><i class="fa fa-calendar text-textLight w-6"></i><span class="text-textMedium">生产日期：2025-XX-XX</span></div>
-        <div class="w-full md:w-1/2 flex items-center"><i class="fa fa-hourglass-half text-textLight w-6"></i><span class="text-textMedium">使用小时数：0（全新）</span></div>
-        <div class="w-full md:w-1/2 flex items-center"><i class="fa fa-tachometer text-textLight w-6"></i><span class="text-textMedium">小时油耗：约21.3L</span></div>
-        <div class="w-full md:w-1/2 flex items-center"><i class="fa fa-tint text-textLight w-6"></i><span class="text-textMedium">机油容量：22L</span></div>
-        <div class="w-full md:w-1/2 flex items-center"><i class="fa fa-check-circle text-textLight w-6"></i><span class="text-textMedium">合格证：有</span></div>
-        <div class="w-full md:w-1/2 flex items-center"><i class="fa fa-leaf text-textLight w-6"></i><span class="text-textMedium">排放标准：国三 / Stage IIIA</span></div>
+        <div class="w-full md:w-1/2 flex items-center">
+          <i class="fa fa-map-marker text-textLight w-6"></i>
+          <span class="text-textMedium">所在地区：河南省郑州市</span>
+        </div>
+        <div class="w-full md:w-1/2 flex items-center">
+          <i class="fa fa-calendar text-textLight w-6"></i>
+          <span class="text-textMedium">生产日期：2021-03-12</span>
+        </div>
+        <div class="w-full md:w-1/2 flex items-center">
+          <i class="fa fa-hourglass-half text-textLight w-6"></i>
+          <span class="text-textMedium">使用小时数：5,730</span>
+        </div>
+        <div class="w-full md:w-1/2 flex items-center">
+          <i class="fa fa-tachometer text-textLight w-6"></i>
+          <span class="text-textMedium">小时油耗：约21.3升</span>
+        </div>
+        <div class="w-full md:w-1/2 flex items-center">
+          <i class="fa fa-tint text-textLight w-6"></i>
+          <span class="text-textMedium">机油状态：良好</span>
+        </div>
+        <div class="w-full md:w-1/2 flex items-center">
+          <i class="fa fa-check-circle text-textLight w-6"></i>
+          <span class="text-textMedium">是否有合格证：有</span>
+        </div>
       </div>
     </section>
 
@@ -124,23 +184,52 @@
     <section class="mb-6 bg-white rounded-lg shadow-card overflow-hidden">
       <div class="border-b border-borderColor">
         <button class="w-full py-3 px-4 text-left font-semibold flex justify-between items-center parameter-tab active" data-target="specs">
-          <span>参数规格</span><i class="fa fa-chevron-down text-textLight transition-all-300 transform rotate-0"></i>
+          <span>参数规格</span>
+          <i class="fa fa-chevron-down text-textLight transition-all-300 transform rotate-0"></i>
         </button>
       </div>
       <div id="specs" class="parameter-content p-4 animate-fade-in">
         <div class="grid grid-cols-2 gap-4 text-sm">
-          <div class="flex flex-col"><span class="text-textLight mb-1">发动机型号</span><span class="font-medium">C7.1 ACERT™</span></div>
-          <div class="flex flex-col"><span class="text-textLight mb-1">气缸数</span><span class="font-medium">6缸 直列四冲程</span></div>
-          <div class="flex flex-col"><span class="text-textLight mb-1">排量</span><span class="font-medium">7.01L</span></div>
-          <div class="flex flex-col"><span class="text-textLight mb-1">缸径×行程</span><span class="font-medium">105mm×135mm</span></div>
-          <div class="flex flex-col"><span class="text-textLight mb-1">最大功率</span><span class="font-medium">224kW（300HP）@2200rpm</span></div>
-          <div class="flex flex-col"><span class="text-textLight mb-1">最大扭矩</span><span class="font-medium">1350N·m @1400rpm</span></div>
-          <div class="flex flex-col"><span class="text-textLight mb-1">冷却方式</span><span class="font-medium">水冷</span></div>
-          <div class="flex flex-col"><span class="text-textLight mb-1">燃油系统</span><span class="font-medium">高压共轨直喷</span></div>
-          <div class="flex flex-col"><span class="text-textLight mb-1">进气方式</span><span class="font-medium">涡轮增压+中冷</span></div>
-          <div class="flex flex-col"><span class="text-textLight mb-1">重量</span><span class="font-medium">980kg</span></div>
-          <div class="flex flex-col"><span class="text-textLight mb-1">尺寸（长×宽×高）</span><span class="font-medium">1295×865×1090mm</span></div>
-          <div class="flex flex-col"><span class="text-textLight mb-1">旋转方向</span><span class="font-medium">逆时针（飞轮端）</span></div>
+          <div class="flex flex-col">
+            <span class="text-textLight mb-1">发动机型号</span>
+            <span class="font-medium">C7.1 ACERT</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-textLight mb-1">气缸数</span>
+            <span class="font-medium">6缸</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-textLight mb-1">排量</span>
+            <span class="font-medium">7.1升</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-textLight mb-1">最大功率</span>
+            <span class="font-medium">224 kW (300 HP)</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-textLight mb-1">最大扭矩</span>
+            <span class="font-medium">1,350 N·m @ 1,400 rpm</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-textLight mb-1">冷却方式</span>
+            <span class="font-medium">水冷</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-textLight mb-1">燃油系统</span>
+            <span class="font-medium">共轨直喷</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-textLight mb-1">排放标准</span>
+            <span class="font-medium">Tier 4 Final / EU Stage IV</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-textLight mb-1">重量</span>
+            <span class="font-medium">980 kg</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-textLight mb-1">尺寸 (长×宽×高)</span>
+            <span class="font-medium">1,295 × 865 × 1,090 mm</span>
+          </div>
         </div>
       </div>
     </section>
@@ -149,17 +238,86 @@
     <section class="mb-6 bg-white rounded-lg shadow-card overflow-hidden">
       <div class="border-b border-borderColor">
         <button class="w-full py-3 px-4 text-left font-semibold flex justify-between items-center parameter-tab" data-target="performance">
-          <span>性能数据</span><i class="fa fa-chevron-down text-textLight transition-all-300 transform rotate-0"></i>
+          <span>性能数据</span>
+          <i class="fa fa-chevron-down text-textLight transition-all-300 transform rotate-0"></i>
         </button>
       </div>
       <div id="performance" class="parameter-content p-4 hidden">
         <div class="mb-6">
           <h3 class="text-base font-semibold mb-3">功率曲线</h3>
-          <div class="h-64"><canvas id="powerChart"></canvas></div>
+          <div class="h-64">
+            <canvas id="powerChart"></canvas>
+          </div>
         </div>
         <div>
           <h3 class="text-base font-semibold mb-3">扭矩曲线</h3>
-          <div class="h-64"><canvas id="torqueChart"></canvas></div>
+          <div class="h-64">
+            <canvas id="torqueChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 检测报告 -->
+    <section class="mb-6 bg-white rounded-lg shadow-card overflow-hidden">
+      <div class="border-b border-borderColor">
+        <button class="w-full py-3 px-4 text-left font-semibold flex justify-between items-center parameter-tab" data-target="inspection">
+          <span>检测报告</span>
+          <i class="fa fa-chevron-down text-textLight transition-all-300 transform rotate-0"></i>
+        </button>
+      </div>
+      <div id="inspection" class="parameter-content p-4 hidden">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="text-textMedium">发动机外观</span>
+            <span class="text-success font-medium">良好</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-textMedium">压缩比</span>
+            <span class="text-success font-medium">正常</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-textMedium">燃油系统</span>
+            <span class="text-success font-medium">正常</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-textMedium">冷却系统</span>
+            <span class="text-success font-medium">正常</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-textMedium">润滑系统</span>
+            <span class="text-success font-medium">正常</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-textMedium">排气系统</span>
+            <span class="text-success font-medium">正常</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-textMedium">启动系统</span>
+            <span class="text-success font-medium">正常</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-textMedium">涡轮增压器</span>
+            <span class="text-warning font-medium">轻微磨损</span>
+          </div>
+        </div>
+        
+        <div class="mt-6">
+          <h3 class="text-base font-semibold mb-3">最近检测记录</h3>
+          <div class="bg-bgLight rounded-lg p-3 text-sm">
+            <div class="flex justify-between mb-2">
+              <span class="text-textMedium">检测日期</span>
+              <span>2023-05-15</span>
+            </div>
+            <div class="flex justify-between mb-2">
+              <span class="text-textMedium">检测人员</span>
+              <span>张工程师</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-textMedium">检测结论</span>
+              <span class="text-success">通过</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -168,22 +326,32 @@
     <section class="mb-6 bg-white rounded-lg shadow-card overflow-hidden">
       <div class="border-b border-borderColor">
         <button class="w-full py-3 px-4 text-left font-semibold flex justify-between items-center parameter-tab" data-target="compatibility">
-          <span>适配机型</span><i class="fa fa-chevron-down text-textLight transition-all-300 transform rotate-0"></i>
+          <span>适配机型</span>
+          <i class="fa fa-chevron-down text-textLight transition-all-300 transform rotate-0"></i>
         </button>
       </div>
       <div id="compatibility" class="parameter-content p-4 hidden">
         <div class="space-y-4">
           <div class="flex items-center p-3 border border-borderColor rounded-lg hover:border-primary transition-all-300 cursor-pointer">
-            <img src="https://p3-doubao-search-sign.byteimg.com/tos-cn-i-xv4ileqgde/7fe9712bbc38407182eb6e968c1f8bba~tplv-be4g95zd3a-image.jpeg" alt="卡特320GX" class="w-16 h-16 object-cover rounded-md mr-4">
-            <div><h4 class="font-medium">卡特彼勒 320GX 挖掘机</h4><p class="text-textMedium text-sm">20吨级中型挖掘机</p></div>
+            <img src="https://p3-doubao-search-sign.byteimg.com/tos-cn-i-xv4ileqgde/7fe9712bbc38407182eb6e968c1f8bba~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&amp;x-expires=1790154065&amp;x-signature=DuWVdtJUuJf2gFk5Uvhm%2FOByKPo%3D" alt="卡特彼勒 320GX 挖掘机" class="w-16 h-16 object-cover rounded-md mr-4">
+            <div>
+              <h4 class="font-medium">卡特彼勒 320GX 挖掘机</h4>
+              <p class="text-textMedium text-sm">20吨级中型挖掘机</p>
+            </div>
           </div>
           <div class="flex items-center p-3 border border-borderColor rounded-lg hover:border-primary transition-all-300 cursor-pointer">
-            <img src="https://p3-doubao-search-sign.byteimg.com/tos-cn-i-xv4ileqgde/7fe9712bbc38407182eb6e968c1f8bba~tplv-be4g95zd3a-image.jpeg" alt="卡特323GX" class="w-16 h-16 object-cover rounded-md mr-4">
-            <div><h4 class="font-medium">卡特彼勒 323GX 挖掘机</h4><p class="text-textMedium text-sm">23吨级中型挖掘机</p></div>
+            <img src="https://p3-doubao-search-sign.byteimg.com/tos-cn-i-xv4ileqgde/7fe9712bbc38407182eb6e968c1f8bba~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&amp;x-expires=1790154065&amp;x-signature=DuWVdtJUuJf2gFk5Uvhm%2FOByKPo%3D" alt="卡特彼勒 323GX 挖掘机" class="w-16 h-16 object-cover rounded-md mr-4">
+            <div>
+              <h4 class="font-medium">卡特彼勒 323GX 挖掘机</h4>
+              <p class="text-textMedium text-sm">23吨级中型挖掘机</p>
+            </div>
           </div>
           <div class="flex items-center p-3 border border-borderColor rounded-lg hover:border-primary transition-all-300 cursor-pointer">
-            <img src="https://p3-doubao-search-sign.byteimg.com/tos-cn-i-xv4ileqgde/7fe9712bbc38407182eb6e968c1f8bba~tplv-be4g95zd3a-image.jpeg" alt="卡特326GX" class="w-16 h-16 object-cover rounded-md mr-4">
-            <div><h4 class="font-medium">卡特彼勒 326GX 挖掘机</h4><p class="text-textMedium text-sm">26吨级大型挖掘机</p></div>
+            <img src="https://p3-doubao-search-sign.byteimg.com/tos-cn-i-xv4ileqgde/7fe9712bbc38407182eb6e968c1f8bba~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&amp;x-expires=1790154065&amp;x-signature=DuWVdtJUuJf2gFk5Uvhm%2FOByKPo%3D" alt="卡特彼勒 326GX 挖掘机" class="w-16 h-16 object-cover rounded-md mr-4">
+            <div>
+              <h4 class="font-medium">卡特彼勒 326GX 挖掘机</h4>
+              <p class="text-textMedium text-sm">26吨级大型挖掘机</p>
+            </div>
           </div>
         </div>
       </div>
@@ -193,34 +361,39 @@
     <section class="mb-6 bg-white rounded-lg shadow-card overflow-hidden">
       <div class="border-b border-borderColor">
         <button class="w-full py-3 px-4 text-left font-semibold flex justify-between items-center parameter-tab" data-target="parts">
-          <span>相关配件</span><i class="fa fa-chevron-down text-textLight transition-all-300 transform rotate-0"></i>
+          <span>相关配件</span>
+          <i class="fa fa-chevron-down text-textLight transition-all-300 transform rotate-0"></i>
         </button>
       </div>
       <div id="parts" class="parameter-content p-4 hidden">
         <div class="grid grid-cols-2 gap-4">
           <div class="border border-borderColor rounded-lg p-3 card-hover">
             <div class="aspect-square bg-bgLight rounded-md mb-2 overflow-hidden">
-              <img src="https://p26-doubao-search-sign.byteimg.com/labis/5e0a7d104d4a40970e620801b819b61c~tplv-be4g95zd3a-image.jpeg" alt="机油滤清器" class="w-full h-full object-cover">
+              <img src="https://p26-doubao-search-sign.byteimg.com/labis/5e0a7d104d4a40970e620801b819b61c~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&amp;x-expires=1790154065&amp;x-signature=lRUgxSrAsoAornsHvfu9nXrTN3E%3D" alt="机油滤清器" class="w-full h-full object-cover">
             </div>
-            <h4 class="font-medium text-sm truncate">机油滤清器</h4><p class="text-accent text-xs mt-1">¥280</p>
+            <h4 class="font-medium text-sm truncate">机油滤清器</h4>
+            <p class="text-accent text-xs mt-1">¥280</p>
           </div>
           <div class="border border-borderColor rounded-lg p-3 card-hover">
             <div class="aspect-square bg-bgLight rounded-md mb-2 overflow-hidden">
-              <img src="https://p26-doubao-search-sign.byteimg.com/labis/5e0a7d104d4a40970e620801b819b61c~tplv-be4g95zd3a-image.jpeg" alt="燃油滤清器" class="w-full h-full object-cover">
+              <img src="https://p26-doubao-search-sign.byteimg.com/labis/5e0a7d104d4a40970e620801b819b61c~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&amp;x-expires=1790154065&amp;x-signature=lRUgxSrAsoAornsHvfu9nXrTN3E%3D" alt="燃油滤清器" class="w-full h-full object-cover">
             </div>
-            <h4 class="font-medium text-sm truncate">燃油滤清器</h4><p class="text-accent text-xs mt-1">¥320</p>
+            <h4 class="font-medium text-sm truncate">燃油滤清器</h4>
+            <p class="text-accent text-xs mt-1">¥320</p>
           </div>
           <div class="border border-borderColor rounded-lg p-3 card-hover">
             <div class="aspect-square bg-bgLight rounded-md mb-2 overflow-hidden">
-              <img src="https://p26-doubao-search-sign.byteimg.com/labis/5e0a7d104d4a40970e620801b819b61c~tplv-be4g95zd3a-image.jpeg" alt="空气滤清器" class="w-full h-full object-cover">
+              <img src="https://p26-doubao-search-sign.byteimg.com/labis/5e0a7d104d4a40970e620801b819b61c~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&amp;x-expires=1790154065&amp;x-signature=lRUgxSrAsoAornsHvfu9nXrTN3E%3D" alt="空气滤清器" class="w-full h-full object-cover">
             </div>
-            <h4 class="font-medium text-sm truncate">空气滤清器</h4><p class="text-accent text-xs mt-1">¥450</p>
+            <h4 class="font-medium text-sm truncate">空气滤清器</h4>
+            <p class="text-accent text-xs mt-1">¥450</p>
           </div>
           <div class="border border-borderColor rounded-lg p-3 card-hover">
             <div class="aspect-square bg-bgLight rounded-md mb-2 overflow-hidden">
-              <img src="https://p26-doubao-search-sign.byteimg.com/labis/5e0a7d104d4a40970e620801b819b61c~tplv-be4g95zd3a-image.jpeg" alt="涡轮增压器" class="w-full h-full object-cover">
+              <img src="https://p26-doubao-search-sign.byteimg.com/labis/5e0a7d104d4a40970e620801b819b61c~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&amp;x-expires=1790154065&amp;x-signature=lRUgxSrAsoAornsHvfu9nXrTN3E%3D" alt="涡轮增压器" class="w-full h-full object-cover">
             </div>
-            <h4 class="font-medium text-sm truncate">涡轮增压器</h4><p class="text-accent text-xs mt-1">¥12,500</p>
+            <h4 class="font-medium text-sm truncate">涡轮增压器</h4>
+            <p class="text-accent text-xs mt-1">¥12,500</p>
           </div>
         </div>
       </div>
@@ -230,12 +403,22 @@
   <!-- 底部操作栏 -->
   <footer class="fixed bottom-0 left-0 right-0 bg-white border-t border-borderColor py-3 px-4 flex items-center justify-between z-40">
     <div class="flex items-center space-x-4">
-      <button class="flex flex-col items-center justify-center"><i class="fa fa-heart-o text-textMedium text-xl"></i><span class="text-textLight text-xs mt-1">收藏</span></button>
-      <button class="flex flex-col items-center justify-center"><i class="fa fa-phone text-textMedium text-xl"></i><span class="text-textLight text-xs mt-1">电话咨询</span></button>
-      <button class="flex flex-col items-center justify-center"><i class="fa fa-commenting-o text-textMedium text-xl"></i><span class="text-textLight text-xs mt-1">在线沟通</span></button>
+      <button class="flex flex-col items-center justify-center">
+        <i class="fa fa-heart-o text-textMedium text-xl"></i>
+        <span class="text-textLight text-xs mt-1">收藏</span>
+      </button>
+      <button class="flex flex-col items-center justify-center">
+        <i class="fa fa-phone text-textMedium text-xl"></i>
+        <span class="text-textLight text-xs mt-1">电话咨询</span>
+      </button>
+      <button class="flex flex-col items-center justify-center">
+        <i class="fa fa-commenting-o text-textMedium text-xl"></i>
+        <span class="text-textLight text-xs mt-1">在线沟通</span>
+      </button>
     </div>
     <button id="contactButton" class="bg-accent text-white font-semibold px-6 py-2 rounded-full hover:bg-opacity-90 transition-all-300 flex items-center">
-      <i class="fa fa-envelope-o mr-2"></i><span>请求报价</span>
+      <i class="fa fa-envelope-o mr-2"></i>
+      <span>请求报价</span>
     </button>
   </footer>
 
@@ -244,19 +427,40 @@
     <div class="bg-white rounded-lg w-11/12 max-w-md mx-4 animate-slide-up">
       <div class="p-4 border-b border-borderColor flex justify-between items-center">
         <h3 class="text-lg font-semibold">请求报价</h3>
-        <button id="closeModal" class="text-textLight hover:text-textDark"><i class="fa fa-times text-xl"></i></button>
+        <button id="closeModal" class="text-textLight hover:text-textDark">
+          <i class="fa fa-times text-xl"></i>
+        </button>
       </div>
       <div class="p-4">
-        <div class="mb-4"><label class="block text-textMedium text-sm mb-2" for="name">姓名</label><input type="text" id="name" class="w-full px-3 py-2 border border-borderColor rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="请输入您的姓名"></div>
-        <div class="mb-4"><label class="block text-textMedium text-sm mb-2" for="phone">电话</label><input type="tel" id="phone" class="w-full px-3 py-2 border border-borderColor rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="请输入您的联系电话"></div>
-        <div class="mb-4"><label class="block text-textMedium text-sm mb-2" for="message">留言</label><textarea id="message" class="w-full px-3 py-2 border border-borderColor rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent h-24" placeholder="请输入您的需求或问题"></textarea></div>
-        <button id="submitQuote" class="w-full bg-accent text-white font-semibold py-3 rounded-md hover:bg-opacity-90 transition-all-300">提交报价请求</button>
+        <div class="mb-4">
+          <label class="block text-textMedium text-sm mb-2" for="name">姓名</label>
+          <input type="text" id="name" class="w-full px-3 py-2 border border-borderColor rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="请输入您的姓名">
+        </div>
+        <div class="mb-4">
+          <label class="block text-textMedium text-sm mb-2" for="phone">电话</label>
+          <input type="tel" id="phone" class="w-full px-3 py-2 border border-borderColor rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="请输入您的联系电话">
+        </div>
+        <div class="mb-4">
+          <label class="block text-textMedium text-sm mb-2" for="message">留言</label>
+          <textarea id="message" class="w-full px-3 py-2 border border-borderColor rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent h-24" placeholder="请输入您的需求或问题"></textarea>
+        </div>
+        <button id="submitQuote" class="w-full bg-accent text-white font-semibold py-3 rounded-md hover:bg-opacity-90 transition-all-300">
+          提交报价请求
+        </button>
       </div>
     </div>
   </div>
 
+  <!-- 成功提示弹窗 -->
+  <div id="successToast" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black bg-opacity-70 text-white px-6 py-4 rounded-lg z-50 hidden">
+    <div class="flex flex-col items-center">
+      <i class="fa fa-check-circle text-4xl mb-2"></i>
+      <span>提交成功，我们将尽快与您联系！</span>
+    </div>
+  </div>
+
   <script>
-    // 轮播
+    // 图片轮播功能
     document.addEventListener('DOMContentLoaded', function() {
       const carouselInner = document.getElementById('carouselInner');
       const indicators = document.querySelectorAll('.carousel-indicator');
@@ -264,74 +468,286 @@
       const nextButton = document.getElementById('nextSlide');
       let currentIndex = 0;
       const slideCount = indicators.length;
+
       function updateCarousel() {
         carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
-        indicators.forEach((ind, i) => { ind.classList.toggle('opacity-100', i === currentIndex); ind.classList.toggle('opacity-50', i !== currentIndex); });
+        
+        // 更新指示器状态
+        indicators.forEach((indicator, index) => {
+          if (index === currentIndex) {
+            indicator.classList.add('opacity-100');
+            indicator.classList.remove('opacity-50');
+          } else {
+            indicator.classList.remove('opacity-100');
+            indicator.classList.add('opacity-50');
+          }
+        });
       }
-      function nextSlide() { currentIndex = (currentIndex + 1) % slideCount; updateCarousel(); }
-      function prevSlide() { currentIndex = (currentIndex - 1 + slideCount) % slideCount; updateCarousel(); }
-      let autoplay = setInterval(nextSlide, 5000);
-      indicators.forEach((ind, i) => ind.addEventListener('click', () => { currentIndex = i; updateCarousel(); clearInterval(autoplay); autoplay = setInterval(nextSlide, 5000); }));
-      prevButton.addEventListener('click', () => { prevSlide(); clearInterval(autoplay); autoplay = setInterval(nextSlide, 5000); });
-      nextButton.addEventListener('click', () => { nextSlide(); clearInterval(autoplay); autoplay = setInterval(nextSlide, 5000); });
 
-      // 折叠面板
-      const tabs = document.querySelectorAll('.parameter-tab');
-      tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-          const target = document.getElementById(tab.dataset.target);
-          const icon = tab.querySelector('i');
-          target.classList.toggle('hidden');
-          icon.classList.toggle('rotate-180');
-          tab.classList.toggle('active');
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % slideCount;
+        updateCarousel();
+      }
+
+      function prevSlide() {
+        currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+        updateCarousel();
+      }
+
+      // 设置自动轮播
+      let autoplayInterval = setInterval(nextSlide, 5000);
+
+      // 点击指示器切换轮播
+      indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+          currentIndex = index;
+          updateCarousel();
+          resetAutoplay();
         });
       });
 
-      // 弹窗
-      const contactBtn = document.getElementById('contactButton');
-      const modal = document.getElementById('contactModal');
+      // 点击上一张/下一张按钮
+      prevButton.addEventListener('click', () => {
+        prevSlide();
+        resetAutoplay();
+      });
+
+      nextButton.addEventListener('click', () => {
+        nextSlide();
+        resetAutoplay();
+      });
+
+      // 重置自动轮播计时器
+      function resetAutoplay() {
+        clearInterval(autoplayInterval);
+        autoplayInterval = setInterval(nextSlide, 5000);
+      }
+
+      // 参数规格等标签页切换
+      const parameterTabs = document.querySelectorAll('.parameter-tab');
+      
+      parameterTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const targetId = tab.getAttribute('data-target');
+          const content = document.getElementById(targetId);
+          const icon = tab.querySelector('i');
+          
+          // 切换当前标签页的显示状态
+          if (content.classList.contains('hidden')) {
+            // 显示内容
+            content.classList.remove('hidden');
+            content.classList.add('animate-fade-in');
+            icon.classList.add('rotate-180');
+            
+            // 标记为活动状态
+            tab.classList.add('active');
+          } else {
+            // 隐藏内容
+            content.classList.add('hidden');
+            icon.classList.remove('rotate-180');
+            
+            // 移除活动状态
+            tab.classList.remove('active');
+          }
+        });
+      });
+
+      // 联系表单弹窗
+      const contactButton = document.getElementById('contactButton');
+      const contactModal = document.getElementById('contactModal');
       const closeModal = document.getElementById('closeModal');
-      contactBtn.addEventListener('click', () => modal.classList.remove('hidden'));
-      closeModal.addEventListener('click', () => modal.classList.add('hidden'));
-      modal.addEventListener('click', e => e.target === modal && modal.classList.add('hidden'));
+      const submitQuote = document.getElementById('submitQuote');
+      const successToast = document.getElementById('successToast');
 
-      // 图表
-      const powerCtx = document.getElementById('powerChart').getContext('2d');
-      new Chart(powerCtx, {
-        type: 'line',
-        data: {
-          labels: ['800','1000','1200','1400','1600','1800','2000','2200'],
-          datasets: [{
-            label: '功率(kW)',
-            data: [90,120,150,180,205,224,220,210],
-            borderColor: '#0056b3',
-            backgroundColor: 'rgba(0,86,179,0.1)',
-            borderWidth: 2,
-            fill: true,
-            tension: 0.3
-          }]
-        },
-        options: { responsive: true, maintainAspectRatio: false }
+      contactButton.addEventListener('click', () => {
+        contactModal.classList.remove('hidden');
       });
 
-      const torqueCtx = document.getElementById('torqueChart').getContext('2d');
-      new Chart(torqueCtx, {
-        type: 'line',
-        data: {
-          labels: ['800','1000','1200','1400','1600','1800','2000','2200'],
-          datasets: [{
-            label: '扭矩(N·m)',
-            data: [850,1000,1200,1350,1300,1200,1100,950],
-            borderColor: '#ff6b00',
-            backgroundColor: 'rgba(255,107,0,0.1)',
-            borderWidth: 2,
-            fill: true,
-            tension: 0.3
-          }]
-        },
-        options: { responsive: true, maintainAspectRatio: false }
+      closeModal.addEventListener('click', () => {
+        contactModal.classList.add('hidden');
       });
+
+      // 点击弹窗外部关闭弹窗
+      contactModal.addEventListener('click', (e) => {
+        if (e.target === contactModal) {
+          contactModal.classList.add('hidden');
+        }
+      });
+
+      // 提交报价请求
+      submitQuote.addEventListener('click', () => {
+        const name = document.getElementById('name').value;
+        const phone = document.getElementById('phone').value;
+        const message = document.getElementById('message').value;
+        
+        // 简单表单验证
+        if (!name || !phone) {
+          alert('请填写姓名和电话');
+          return;
+        }
+        
+        // 显示成功提示
+        contactModal.classList.add('hidden');
+        successToast.classList.remove('hidden');
+        
+        // 3秒后隐藏成功提示
+        setTimeout(() => {
+          successToast.classList.add('hidden');
+        }, 3000);
+        
+        // 重置表单
+        document.getElementById('name').value = '';
+        document.getElementById('phone').value = '';
+        document.getElementById('message').value = '';
+      });
+
+      // 返回按钮功能
+      const backButton = document.getElementById('backButton');
+      backButton.addEventListener('click', () => {
+        // 在实际应用中，这里会导航回上一页
+        alert('返回上一页');
+      });
+
+      // 初始化图表
+      initCharts();
     });
+
+    // 初始化性能数据图表
+    function initCharts() {
+      // 功率曲线图表
+      const powerCtx = document.getElementById('powerChart').getContext('2d');
+      const powerChart = new Chart(powerCtx, {
+        type: 'line',
+        data: {
+          labels: ['800', '1000', '1200', '1400', '1600', '1800', '2000', '2200'],
+          datasets: [{
+            label: '功率 (kW)',
+            data: [90, 120, 150, 180, 205, 224, 220, 210],
+            borderColor: '#0056b3',
+            backgroundColor: 'rgba(0, 86, 179, 0.1)',
+            borderWidth: 2,
+            fill: true,
+            tension: 0.3,
+            pointBackgroundColor: '#0056b3',
+            pointRadius: 3,
+            pointHoverRadius: 5
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false
+            },
+            tooltip: {
+              mode: 'index',
+              intersect: false,
+              backgroundColor: 'rgba(0, 0, 0, 0.7)',
+              titleColor: '#fff',
+              bodyColor: '#fff',
+              borderColor: 'rgba(255, 255, 255, 0.2)',
+              borderWidth: 1
+            }
+          },
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: '转速 (rpm)',
+                color: '#666',
+                font: {
+                  size: 12
+                }
+              },
+              grid: {
+                color: 'rgba(0, 0, 0, 0.05)'
+              }
+            },
+            y: {
+              title: {
+                display: true,
+                text: '功率 (kW)',
+                color: '#666',
+                font: {
+                  size: 12
+                }
+              },
+              grid: {
+                color: 'rgba(0, 0, 0, 0.05)'
+              }
+            }
+          }
+        }
+      });
+
+      // 扭矩曲线图表
+      const torqueCtx = document.getElementById('torqueChart').getContext('2d');
+      const torqueChart = new Chart(torqueCtx, {
+        type: 'line',
+        data: {
+          labels: ['800', '1000', '1200', '1400', '1600', '1800', '2000', '2200'],
+          datasets: [{
+            label: '扭矩 (N·m)',
+            data: [850, 1000, 1200, 1350, 1300, 1200, 1100, 950],
+            borderColor: '#ff6b00',
+            backgroundColor: 'rgba(255, 107, 0, 0.1)',
+            borderWidth: 2,
+            fill: true,
+            tension: 0.3,
+            pointBackgroundColor: '#ff6b00',
+            pointRadius: 3,
+            pointHoverRadius: 5
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false
+            },
+            tooltip: {
+              mode: 'index',
+              intersect: false,
+              backgroundColor: 'rgba(0, 0, 0, 0.7)',
+              titleColor: '#fff',
+              bodyColor: '#fff',
+              borderColor: 'rgba(255, 255, 255, 0.2)',
+              borderWidth: 1
+            }
+          },
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: '转速 (rpm)',
+                color: '#666',
+                font: {
+                  size: 12
+                }
+              },
+              grid: {
+                color: 'rgba(0, 0, 0, 0.05)'
+              }
+            },
+            y: {
+              title: {
+                display: true,
+                text: '扭矩 (N·m)',
+                color: '#666',
+                font: {
+                  size: 12
+                }
+              },
+              grid: {
+                color: 'rgba(0, 0, 0, 0.05)'
+              }
+            }
+          }
+        }
+      });
+    }
   </script>
-</body>
-</html>
+
+</body></html>
